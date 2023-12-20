@@ -9,25 +9,16 @@ import Search from './components/Search'
 
 function App() {
   return (
-    <div>
-      <header>
-        
-      </header>
-      <div style={{border: '1px solid black'}}>
-        <div>
-          <Search />
-        </div>
-        <div>
-          <MediumSquare />
-        </div>
-        <div>
-          <SmallSquare />
-          <SmallSquare />
-          <SmallSquare />
-          <SmallSquare />
-        </div>
+    <section>      
+      <div>
+        <Search />
+        <MediumSquare />
+        <SmallSquare />
+        <SmallSquare />
+        <SmallSquare />
+        <SmallSquare />
       </div>
-    </div>
+    </section>
   )
 }
 

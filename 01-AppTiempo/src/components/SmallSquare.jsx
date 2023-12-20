@@ -17,7 +17,7 @@ export default function SmallSquare(){
         //     </div>   
         // </section> 
         
-        <div className="card transparencia bg-transparent" style={{width: '18rem', display: 'inline-block'}}>
+        <div className="card bg-light bg-opacity-25 mx-2" style={{width: '18rem', display: 'inline-block'}}>
             <div className="Day">
                 Day
             </div>

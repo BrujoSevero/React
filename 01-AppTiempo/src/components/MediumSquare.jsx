@@ -16,7 +16,7 @@ export default function MediumSquare(){
         //     </div>   
         // </section> 
         
-        <div className="card transparencia bg-transparent">
+        <div className="card bg-light bg-opacity-25 mx-2">
             <div><h1>City</h1></div>
             <div><h2>Grade</h2></div>
             <div>
@@ -25,8 +25,8 @@ export default function MediumSquare(){
                 </svg>
             </div>
             <div><h2>Weather</h2></div>
-            <div>
-                <table className="table" style={{border: '1px solid black'}}>
+            <div className="row d-flex justify-content-center">
+                <table className="table" style={{width: '20em'}}>
                     <tr>
                         <th colspan="2">TimeDate</th>
                     </tr>
