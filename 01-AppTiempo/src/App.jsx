@@ -8,17 +8,15 @@ import MediumSquare from './components/MediumSquare'
 import Search from './components/Search'
 
 function App() {
-  return (
-    <section>      
-      <div>
-        <Search />
-        <MediumSquare />
-        <SmallSquare />
-        <SmallSquare />
-        <SmallSquare />
-        <SmallSquare />
-      </div>
-    </section>
+  return (     
+    <div>
+      <Search />
+      <MediumSquare />
+      <SmallSquare />
+      <SmallSquare />
+      <SmallSquare />
+      <SmallSquare />
+    </div>
   )
 }
 
