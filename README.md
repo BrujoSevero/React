@@ -1,7 +1,8 @@
 # Proyecto React
 ## 01-WEATHERAPP
----
+
 ### Composición:
+---
 Este es mi proyecto de *React* referente a una aplicación del tiempo. Los componentes que la forman son las siguientes:
 
 - WeatherForm.jsx
