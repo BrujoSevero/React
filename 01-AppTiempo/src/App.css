@@ -47,3 +47,17 @@ div {
 img{
   width: 50%;
 }
+
+svg{
+  color: white;  
+}
+
+#iconoPrincipal{
+  width: 20%;
+  color: white;
+}
+
+#icono{
+  width: 50%;
+  color: white;
+}

@@ -1,111 +1,132 @@
-import { useState } from "react"
+import imagenes from "../assets/imagenes";
 
-export default function WeatherDisplay(){
+export default function WeatherDisplay({weather1, weather}){
+    
+    //Creamos un array de los días de la semana y obtenemos el día actual para luego retornarlo
+    const dateBuilder = (d) => {
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];        
+        const day = days[d.getDay()];
 
-    const [weather, setWeather] = useState({
-        city: "Stockholm, SE",
-        grade: "23", 
-        icon: "https://openweathermap.org/img/wn/10d@2x.png",
-        weather: "Clear Sky",
-        timeDate: "Thursday 14:20 PM"
-        
-    })
+        return `${day}`        
+    }
 
     return(
-        <div className="container-lg">
-            <div className="card bg-light bg-opacity-25 mx-2">
-                <div><h1>City</h1></div>
-                <div><h2>Grade</h2></div>
-                <img className="mx-auto" src={weather.icon} alt="..."/>
-                <div><h2>{weather.grade}ºC</h2></div>
-                <div className="row d-flex justify-content-center">
-                    <table className="table" style={{width: '20em'}}>
-                        <tr>
-                            <th colspan="2">{weather.timeDate}</th>
-                        </tr>
-                        <tr>
-                            <td>Wind</td>
-                            <td>Preasure</td>
-                        </tr>
-                        <tr>
-                            <td>Humidity</td>
-                            <td>Cloudiness</td>
-                        </tr>
-                    </table>
+        <div className="card bg-light bg-opacity-25 mx-2">
+            <div className="city">
+                {typeof weather1.name !== "undefined" ? (
+                    <h1>{weather1.name}, {weather1.sys.country}</h1>
+                    ) : (
+                    ""
+                )}
+            </div>
+            <div className="grade">
+                {typeof weather1.main !== "undefined" ? (
+                    <h2>{Math.round(weather1.main.temp)}ºC</h2>
+                    ) : (
+                    ""
+                )}
+            </div>
+            <div>
+                {/*En cada caso comparamos lo que hay escrito en la api en la sección main, dependiendo de lo escrito se escogerá una 
+                imagen u otra */}
+                {typeof weather.list != "undefined" ?
+                <div>
+                    {weather.list[0].weather[0].main == "Snow" ?
+                    <img id="iconoPrincipal" src={imagenes.img3} className="card-img-top" />
+                    :
+                    ' '
+                    }
                 </div>
+                :
+                ' '
+                }
+                {typeof weather.list != "undefined" ?
+                <div>
+                    {weather.list[0].weather[0].main == "Rain" ?
+                    <img id="iconoPrincipal" src={imagenes.img5} className="card-img-top" />
+                    :
+                    ' '
+                    }
+                </div>
+                :
+                ' '
+                }
+                {typeof weather.list != "undefined" ?
+                <div>
+                    {weather.list[0].weather[0].main == "Clouds" ?
+                    <img id="iconoPrincipal" src={imagenes.img2} className="card-img-top" />
+                    :
+                    ' '
+                    }
+                </div>
+                :
+                ' '
+                }
+                {typeof weather.list != "undefined" ?
+                <div>
+                    {weather.list[0].weather[0].main == "Clear" ?
+                    <img id="iconoPrincipal" src={imagenes.img1} className="card-img-top" />
+                    :
+                    ' '
+                    }
+                </div>
+                :
+                ' '
+                }
+                {typeof weather.list != "undefined" ?
+                <div>
+                    {weather.list[0].weather[0].main == "Storm" ?
+                    <img id="iconoPrincipal" src={imagenes.img4} className="card-img-top" />
+                    :
+                    ' '
+                    }
+                </div>
+                :
+                ' '
+                }
             </div>
-
-            <div className="d-sm-inline-block">
-                <div className="card bg-light bg-opacity-25 mx-2" style={{width: '18rem', display: 'inline-block'}}>
-                    <div className="Day">
-                        Day
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" className="bi bi-brightness-high" viewBox="0 0 16 16">
-                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-                        </svg>
-                    </div>
-                    <div className="Grade">
-                        Grade
-                    </div>
-                    <div className="Weather">
-                        Weather
-                    </div>
-                </div> 
-            
-                <div className="card bg-light bg-opacity-25 mx-2" style={{width: '18rem', display: 'inline-block'}}>
-                    <div className="Day">
-                        Day
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" className="bi bi-brightness-high" viewBox="0 0 16 16">
-                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-                        </svg>
-                    </div>
-                    <div className="Grade">
-                        Grade
-                    </div>
-                    <div className="Weather">
-                        Weather
-                    </div>
-                </div> 
+            <div className="weather">
+                {typeof weather1.weather != "undefined" ? (
+                    <h2>{weather1.weather[0].description}</h2>
+                    ) : (
+                    ""
+                )}                                 
             </div>
-
-            <div className="d-sm-inline-block">
-                <div className="card bg-light bg-opacity-25 mx-2" style={{width: '18rem', display: 'inline-block'}}>
-                    <div className="Day">
-                        Day
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" className="bi bi-brightness-high" viewBox="0 0 16 16">
-                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-                        </svg>
-                    </div>
-                    <div className="Grade">
-                        Grade
-                    </div>
-                    <div className="Weather">
-                        Weather
-                    </div>
-                </div> 
-            
-                <div className="card bg-light bg-opacity-25 mx-2" style={{width: '18rem', display: 'inline-block'}}>
-                    <div className="Day">
-                        Day
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" className="bi bi-brightness-high" viewBox="0 0 16 16">
-                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-                        </svg>
-                    </div>
-                    <div className="Grade">
-                        Grade
-                    </div>
-                    <div className="Weather">
-                        Weather
-                    </div>
-                </div> 
-            </div>                       
+            <div className="row d-flex justify-content-center">
+                <table className="table" style={{width: '20em'}}>
+                    <tr>
+                        {typeof weather1.dt != "undefined" ? (
+                            <th colSpan={2} className="h4">{dateBuilder(new Date())}</th>
+                            ) : (
+                            ""
+                        )}
+                    </tr>
+                    <tr>
+                        {typeof weather1.wind != "undefined" ? (
+                            <td>Wind {weather1.wind.speed} m/s</td>
+                            ) : (
+                            ""
+                        )}
+                        {typeof weather1.main != "undefined" ? (
+                            <td>Pressure {weather1.main.pressure} hPa</td>
+                            ) : (
+                            ""
+                        )}
+                    </tr>
+                    <tr>
+                        {typeof weather1.main != "undefined" ? (
+                            <td>Humidity {weather1.main.humidity} %</td>
+                            ) : (
+                            ""
+                        )}
+                        {typeof weather1.clouds != "undefined" ? (
+                            <td>Cloudiness {weather1.clouds.all} %</td>
+                            ) : (
+                            ""
+                        )}
+                    </tr>
+                </table>
+            </div>
         </div>
     )
 }
