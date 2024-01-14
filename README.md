@@ -32,4 +32,4 @@ Este es mi proyecto de *React* referente a una aplicación del tiempo. Los compo
   <br /><br />
       npm run dev
   <br /><br />
-- Y listo, con esto se nos mostrará por pantalla del cmd una dirección del localhost para pder abrir el proyecto y verlo.
+- Y listo, con esto se nos mostrará por pantalla del cmd una dirección del localhost para poder abrir el proyecto y verlo.
