@@ -18,18 +18,18 @@ Este es mi proyecto de *React* referente a una aplicación del tiempo. Los compo
 ---
 ##### Paso 1
 - Desde el cmd hacemos un git clone de nuestro proyecto en la ruta que tú quieras, ejemplo:
-  <br />
+  <br /><br />
      git clone https://github.com/BrujoSevero/React.git
-  <br />
+  <br /><br />
 - Con esto se nos creará una copia del proyecto completo en nuestro dispositivo.
 ##### Paso 2
 - Continuamos accediendo al proyecto que se nos ha clonado y una vez accedido a la carpeta general del proyecto ejecutamos el siguiente comando:
-  <br />
+  <br /><br />
      npm install
-  <br />
+  <br /><br />
 - Esto hará que se nos instale las dependencias que sean necesarias para que el proyecto pueda ejecutarse adecuadamente.
 - Ahora accedemos a la carpeta donde se encuentre el proyecto que queremos abrir en nuestro caso es *01-AppTiempo* y ejecutamos el siguiente comando:
-  <br />
+  <br /><br />
       npm run dev
-  <br />
+  <br /><br />
 - Y listo, con esto se nos mostrará por pantalla del cmd una dirección del localhost para pder abrir el proyecto y verlo.
