@@ -1,8 +1,13 @@
-#root {
+/**#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}**/
+
+body{
+  padding: 2em;
+  background-image: linear-gradient(#B41010, #E5E104, #78E703, #03E77C, #03E7DD, #039EE7, #2020D0, #9A06D5, #D506B2, #D5064B, #F36A6A);
 }
 
 .logo {
@@ -18,25 +23,18 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
 .read-the-docs {
   color: #888;
+}
+
+.pulsar:hover{
+  cursor:pointer ;
+}
+
+svg{
+  color: white;  
+}
+
+header{
+  width: 100vw;
 }

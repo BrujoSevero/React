@@ -1,0 +1,16 @@
+*{
+    font-family:'fantasy';
+}
+
+h4{
+    font-size: large;
+}
+
+h6{
+    font-size: medium;
+    font-weight: bold;
+}
+
+.card-img:hover{
+    transform: translateY(-10px);
+}
