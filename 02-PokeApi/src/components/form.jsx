@@ -31,7 +31,7 @@ export default function Form({setType, setPoke}) {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-black bg-opacity-50 fixed-top">
+            <nav className="navbar navbar-expand-lg bg-black fixed-top">
                 <div className="container-fluid d-flex">
                     <a className="border-1 " href='../index.html'><img src="../src/assets/img/logo.png" width="80px"/></a>   
                     <form role="search" onSubmit={handleSubmit} className='input-group w-50'>

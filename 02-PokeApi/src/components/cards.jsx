@@ -14,26 +14,6 @@ export default function Cartas({poke, setPoke, pokemon, type}) {
             })
             return tipos
     }
-   
-    const iconos = {
-        grass : './assets/img/types/grass.png',
-        water : './assets/img/types/water.png',
-        fire : './assets/img/types/fire.png', 
-        electric : './assets/img/types/electric.png', 
-        normal : './assets/img/types/normal.png', 
-        poison : './assets/img/types/poison.png', 
-        bug : './assets/img/types/bug.png', 
-        fairy : './assets/img/types/fairy.png', 
-        flying : './assets/img/types/flying.png', 
-        ground : './assets/img/types/ground.png', 
-        rock : './assets/img/types/rock.png', 
-        ghost : './assets/img/types/ghost.png', 
-        psychic : './assets/img/types/psychic.png', 
-        ice : './assets/img/types/ice.png', 
-        fighting : './assets/img/types/fighting.png'
-    };
-
-    const obtenerUrlTipo = type => iconos[type];
 
     if (type == "all") {
         return(

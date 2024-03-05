@@ -7,7 +7,8 @@
 
 body{
   padding: 2em;
-  background-image: linear-gradient(#B41010, #E5E104, #78E703, #03E77C, #03E7DD, #039EE7, #2020D0, #9A06D5, #D506B2, #D5064B, #F36A6A);
+  background-image: linear-gradient(#F36A6A, #03E77C);
+  /*background-image: linear-gradient(#B41010, #E5E104, #78E703, #03E77C, #03E7DD, #039EE7, #2020D0, #9A06D5, #D506B2, #D5064B, #);*/
 }
 
 .logo {

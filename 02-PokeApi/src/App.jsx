@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Cartas from './components/cards'
-import Card from './components/card'
+import Card from './components/Card'
 import Form from './components/form'
 import LoadingScreen from './components/loadingScreen'
 

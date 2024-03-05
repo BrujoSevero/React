@@ -1,5 +1,5 @@
 *{
-    font-family:'fantasy';
+    font-family:'Calibri';
 }
 
 h4{
@@ -7,10 +7,14 @@ h4{
 }
 
 h6{
-    font-size: medium;
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
 .card-img:hover{
     transform: translateY(-10px);
+}
+
+.icono{
+    width: 40px;
+    margin-left: 4px;
 }

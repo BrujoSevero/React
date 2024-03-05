@@ -1,9 +1,25 @@
 import {useState, useEffect} from 'react';
 import './stats.js';
 import SingleCard from './singleCard';
+import '../styles/card.css'
 import 'animate.css';
+import grass from '../assets/img/types/grass.png'
+import water from '../assets/img/types/water.png'
+import fire from '../assets/img/types/fire.png'
+import electric from '../assets/img/types/electric.png'
+import normal from '../assets/img/types/normal.png'
+import poison from '../assets/img/types/poison.png'
+import bug from '../assets/img/types/bug.png'
+import fairy from '../assets/img/types/fairy.png'
+import flying from '../assets/img/types/flying.png'
+import ground from '../assets/img/types/ground.png'
+import rock from '../assets/img/types/rock.png'
+import ghost from '../assets/img/types/ghost.png'
+import psychic from '../assets/img/types/psychic.png'
+import ice from '../assets/img/types/ice.png'
+import fighting from '../assets/img/types/fighting.png'
 
-const Card = ({poke}) => {
+const Card = ({poke, setPoke}) => {
     if(!poke){
         return <></>
     }
@@ -38,18 +54,70 @@ const Card = ({poke}) => {
     function getProgressBarClass(name) {
         switch (name) {
             case 'hp':
-                return 'progress-bar-hp';
+                return '#28a745';
             case 'attack':
-                return 'progress-bar-attack';
+                return '#DB1D1D';
             case 'defense':
-                return 'progress-bar-defense';
+                return '#1DDBCF';
             case 'special-attack':
-                return 'progress-bar-special-attack';
+                return '#7F1DDB';
             case 'special-defense':
-                return 'progress-bar-special-defense';
+                return '#1D48DB';
             case 'speed':
-                return 'progress-bar-speed';                                                
+                return '#E8E21E';                                                
         }
+    }
+
+{/**     const barStyle = {
+    backgroundColor: getProgressBarClass(name),
+    };
+*/}
+
+    function iconosClases(key) {
+        switch (key) {
+            case 'grass':
+                return grass
+            case 'water':
+                return water
+            case 'fire':
+                return fire;
+            case 'electric':
+                return electric;
+            case 'normal':
+                return normal;
+            case 'poison':
+                return poison;
+            case 'bug':
+                return bug;
+            case 'fairy':
+                return fairy;
+            case 'flying':
+                return flying;
+            case 'ground':
+                return ground;
+            case 'rock':
+                return rock;
+            case 'ghost':
+                return ghost;
+            case 'psychic':
+                return psychic;
+            case 'ice':
+                return ice;
+            case 'fighting':
+                return fighting;
+        }
+    }
+
+    function tipos() {
+        // Mapeamos cada tipo a su nombre y su correspondiente URL de icono
+        const tiposConIconos = poke.types.map(tipo => {
+            const nombreTipo = tipo.type.name;
+            return { nombre: nombreTipo};
+        });
+
+        // Mapeamos los objetos de tipos y los convertimos en una cadena que contiene tanto el nombre del tipo como su icono
+        const tiposConIconosString = tiposConIconos.map(tipo => <img className='icono' src={iconosClases(tipo.nombre)} alt="" />);
+        return tiposConIconosString;
     }
 
     return (
@@ -57,15 +125,14 @@ const Card = ({poke}) => {
             <div className=" card bg-white bg-opacity-75 mx-auto d-flex" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <div className="card-body col col-md-4 col-lg-6">
                     <h2 className="card-title">{poke.name.toUpperCase()}</h2>
-                    <br></br>
                     <h5 className="titulo-seccion">Abilities:</h5>
-                    {poke.abilities.map(a => a.ability.name)}
+                    {poke.abilities.map(a => <p>{a.ability.name}</p>)}
                     <h5 className="card-title">Stats:</h5> 
                     {poke.stats.map(stat =>
                     <div key={stat.id}>
                         <h6>{stat.stat.name}</h6>
-                        <div className="progress" style={{color: `${getProgressBarClass(stat.name)}`}}>                        
-                            <div className="progress-bar progress-bar-striped" style={{width: `${stat.base_stat}%`}} role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                        <div className="progress">                        
+                            <div className="progress-bar progress-bar-striped" style={{backgroundColor: `${getProgressBarClass(stat.stat.name)}`, width: `${stat.base_stat}%`}} role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
                                 {stat.base_stat}
                             </div>
                         </div>
@@ -73,7 +140,7 @@ const Card = ({poke}) => {
                     )}
                     <h6>Total points: {poke.stats.map((x, y) => (x.base_stat + (y - y))).reduce((x, y) => x + y)} Pts.</h6>
                     <h5 className="card-title">Type:</h5>
-                    {poke.types.map((t, index) => <p key={index}>{t.type.name}</p>)}
+                    <p className="card-text">{tipos()}</p>
 
                     <button type="button" className="btn bg-dark text-white rounded-pill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Moves
@@ -100,7 +167,7 @@ const Card = ({poke}) => {
             <div className='align-items-center justify-content-center col col-12 col-sm-12'>
                 <h2 className='text-center mt-5'>Chain Evolution</h2>
                 <div className='row d-flex mx-auto'>
-                    {chainEvolution.map((name, index) => <SingleCard poke={name} key={name + index}/>)}
+                    {chainEvolution.map((name, index) => <SingleCard poke={name} setPoke={setPoke} key={index}/>)}
                 </div>
             </div>
         </div>        
