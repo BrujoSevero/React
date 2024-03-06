@@ -1,4 +1,4 @@
-# PokeAPI ![Pokebola]([https://cdn.emojidex.com/emoji/px32/Pokebola.png](https://i.gifer.com/JO4d.gif)"Pokebola")
+# PokeAPI ![Pokebola](https://i.gifer.com/JO4d.gif "Pokebola")
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
