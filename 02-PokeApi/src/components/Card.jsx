@@ -132,7 +132,7 @@ const Card = ({poke, setPoke}) => {
                     <div key={stat.id}>
                         <h6>{stat.stat.name}</h6>
                         <div className="progress">                        
-                            <div className="progress-bar progress-bar-striped" style={{backgroundColor: `${getProgressBarClass(stat.stat.name)}`, width: `${stat.base_stat}%`}} role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                            <div className="progress-bar progress-bar-striped negrita" style={{backgroundColor: `${getProgressBarClass(stat.stat.name)}`, width: `${stat.base_stat}%`}} role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
                                 {stat.base_stat}
                             </div>
                         </div>
